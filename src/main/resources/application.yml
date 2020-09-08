@@ -1,0 +1,33 @@
+pagehelper:
+  helper-dialect: mysql
+  reasonable: false
+  support-methods-arguments: true
+  params: count=countSql
+logging:
+  config: classpath:logback.xml
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+server:
+  port: 8080
+  servlet:
+    context-path: /${spring.application.name}
+spring:
+  application:
+    name: mp-multidb
+  datasource:
+    dynamic:
+      primary: order
+      datasource:
+        order:
+          url: jdbc:mysql://127.0.0.1:3306/db1?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Hongkong
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        storage:
+          url: jdbc:mysql://127.0.0.1:3306/db2?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Hongkong
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
