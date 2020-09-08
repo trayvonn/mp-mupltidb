@@ -32,3 +32,4 @@ build/
 ### VS Code ###
 .vscode/
 /tmlog.lck
+/tmlog15.log
